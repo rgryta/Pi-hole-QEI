@@ -1,0 +1,2 @@
+export PIHOLE_HOME="\home\\$PIHOLE_USER"
+export PIHOLE_ROUTER="`echo $PIHOLE_IP | grep -Eo '[0-9]+\.' | tr -d '\n'`1"

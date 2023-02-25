@@ -1,0 +1,5 @@
+echo "interface eth0" >> /etc/dhcpcd.conf
+echo "static ip_address=$PIHOLE_IP/24" >> /etc/dhcpcd.conf
+echo "static routers=$PIHOLE_ROUTER" >> /etc/dhcpcd.conf
+echo "static domain_name_servers=1.1.1.1 8.8.8.8" >> /etc/dhcpcd.conf
+systemctl restart dhcpcd

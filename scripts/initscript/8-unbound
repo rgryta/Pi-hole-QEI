@@ -1,0 +1,17 @@
+apt-get install unbound -y
+
+mkdir -p /var/log/unbound
+touch /var/log/unbound/unbound.log
+chown unbound /var/log/unbound/unbound.log
+
+mv /conf/unbound.conf /etc/unbound/unbound.conf.d/pi-hole.conf
+
+touch /etc/dnsmasq.d/99-edns.conf
+sh -c "echo 'edns-packet-max=1232' >> /etc/dnsmasq.d/99-edns.conf"
+
+apt purge openresolv -y
+
+echo '/var/log/unbound/unbound.log rw,' >> /etc/apparmor.d/local/usr.sbin.unbound
+
+apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
+service unbound restart

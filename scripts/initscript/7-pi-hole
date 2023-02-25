@@ -1,0 +1,13 @@
+apt-get install ipcalc -y
+
+export PIHOLE_CIDR=`ipcalc $PIHOLE_IP /16 | grep Network | awk '{ print $2 }'`
+
+cd /conf
+
+envsubst < setupVars.conf > setupVars.conf.filled
+
+mkdir /etc/pihole
+mv setupVars.conf.filled /etc/pihole/setupVars.conf
+
+curl -sSL https://raw.githubusercontent.com/pi-hole/pi-hole/master/automated%20install/basic-install.sh > ph-install.sh
+/bin/bash ph-install.sh --unattended

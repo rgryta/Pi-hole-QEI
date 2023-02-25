@@ -1,0 +1,4 @@
+Image.img
+scripts/*.xz
+scripts/*.gz
+scripts/mountpoint

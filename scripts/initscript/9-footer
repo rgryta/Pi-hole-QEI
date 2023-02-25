@@ -1,0 +1,8 @@
+cp /conf/clear_logs.sh ${PIHOLE_HOME}
+
+unset PIHOLE_IP PIHOLE_HOST PIHOLE_USER PIHOLE_PASS PIHOLE_HOME PIHOLE_CIDR PIHOLE_ROUTER
+
+rm -rf /conf
+rm -f /boot/firstrun.sh
+sed -i 's| systemd.run.*||g' /boot/cmdline.txt
+exit 0

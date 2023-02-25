@@ -1,0 +1,4 @@
+PIHOLE_IP="192.168.100.11"
+PIHOLE_HOST="pihole"
+PIHOLE_USER="pi"
+PIHOLE_PASS="raspberry"
