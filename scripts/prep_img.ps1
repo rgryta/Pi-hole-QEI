@@ -4,6 +4,15 @@ if (-not (Get-Module -ListAvailable -Name WSLTools)) {
 
 Import-Module WSLTools -WarningAction SilentlyContinue
 if (-not (Ensure-WSL)) {
+	$question = "Yes","No"
+	$selected = Get-Select -Prompt "[OPER] Would you like to install HyperV and WSL now?" -Options $question
+	if ($selected -eq "Yes") {
+		iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/rgryta/PowerShell-WSLTools/main/install-wsl.ps1'))
+		Write-Host "Reboot your system now and then restart the script"
+	}
+	if ($selected -eq "No") {
+		Write-Host "Please set up HyperV and WSL manually and then relaunch the script"
+	}
 	return $false
 }
 
