@@ -1,1 +1,1 @@
-powershell.exe "Start-Process powershell -Verb RunAs -ArgumentList '-NoExit -ExecutionPolicy Bypass -file %~dp0\scripts\prep_wsl-1.ps1'"
+powershell.exe "Start-Process powershell.exe -Verb RunAs -ArgumentList '-NoExit -ExecutionPolicy Bypass -file %~dp0\scripts\prep_img.ps1'"
